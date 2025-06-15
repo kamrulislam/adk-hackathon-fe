@@ -1,0 +1,14 @@
+{
+    "targets": {
+        "vascor-78f6f": {
+            "hosting": {
+                "frontend": [
+                    "boiler-plate-9c825"
+                ]
+            }
+        }
+    },
+    "projects": {
+        "default": "boiler-plate-9c825"
+    }
+}

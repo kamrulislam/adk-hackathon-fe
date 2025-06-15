@@ -1,0 +1,7 @@
+singleQuote: false
+trailingComma: "none"
+semi: false
+useTabs: false
+tabWidth: 4
+plugins:
+    - prettier-plugin-organize-imports
