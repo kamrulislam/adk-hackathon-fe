@@ -13,13 +13,7 @@ export const AUTH_ROUTES: Routes = [
                         (m) => m.LoginComponent
                     )
             },
-            {
-                path: "signup",
-                loadComponent: () =>
-                    import("./signup/signup.component").then(
-                        (m) => m.SignupComponent
-                    )
-            },
+
             { path: "", pathMatch: "full", redirectTo: "login" }
         ]
     }

@@ -13,5 +13,5 @@ export const routes: Routes = [
         loadChildren: () =>
             import("./auth/auth-routing.module").then((m) => m.AUTH_ROUTES)
     },
-    { path: "", redirectTo: "public", pathMatch: "full" }
+    { path: "", redirectTo: "auth", pathMatch: "full" }
 ]

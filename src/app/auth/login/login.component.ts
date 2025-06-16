@@ -1,71 +1,62 @@
 import { CommonModule } from "@angular/common"
-import { Component, OnInit } from "@angular/core"
-import {
-    FormBuilder,
-    FormGroup,
-    ReactiveFormsModule,
-    Validators
-} from "@angular/forms"
-import { Router, RouterLink } from "@angular/router"
-import { MessageService } from "primeng/api"
-import { ButtonModule } from "primeng/button"
-import { CheckboxModule } from "primeng/checkbox"
-import { InputTextModule } from "primeng/inputtext"
-import { PasswordModule } from "primeng/password"
-import { ProgressBarModule } from "primeng/progressbar"
+import { Component } from "@angular/core"
+import { FormsModule } from "@angular/forms"
+import { Router } from "@angular/router"
 import { AuthService } from "../../services/auth.service"
+
+// PrimeNG Imports
+import { ButtonModule } from "primeng/button"
+import { CardModule } from "primeng/card"
+import { DropdownModule } from "primeng/dropdown"
+import { InputTextModule } from "primeng/inputtext"
+import { MessageModule } from "primeng/message"
+import { PasswordModule } from "primeng/password"
 
 @Component({
     selector: "app-login",
-    templateUrl: "./login.component.html",
-    styleUrls: ["./login.component.scss"],
     standalone: true,
     imports: [
-        ReactiveFormsModule,
         CommonModule,
+        FormsModule,
+        CardModule,
         InputTextModule,
         PasswordModule,
+        DropdownModule,
         ButtonModule,
-        ProgressBarModule,
-        RouterLink,
-        CheckboxModule
-    ]
+        MessageModule
+    ],
+    templateUrl: "./login.component.html",
+    styleUrls: ["./login.component.scss"]
 })
-export class LoginComponent implements OnInit {
-    form: FormGroup
-    isSubmitLoading: boolean = false
+export class LoginComponent {
+    loginData = { username: "", password: "", specialty: "" }
+
+    specialties = [
+        { label: "Select Specialty", value: "" },
+        { label: "Oncology", value: "oncology" },
+        { label: "Cardiology", value: "cardiology" },
+        { label: "Neurology", value: "neurology" },
+        { label: "Pediatrics", value: "pediatrics" }
+    ]
+
+    errorMessage = ""
 
     constructor(
-        private formBuilder: FormBuilder,
         private authService: AuthService,
-        private router: Router,
-        private messageService: MessageService
-    ) {
-        this.form = this.formBuilder.group({
-            email: ["", [Validators.required, Validators.email]],
-            password: ["", Validators.required]
-        })
-    }
+        private router: Router
+    ) {}
 
-    ngOnInit() {}
-
-    async onSubmit() {
-        try {
-            this.isSubmitLoading = true
-            await this.authService.login(
-                this.form.value.email,
-                this.form.value.password
+    onLogin() {
+        if (
+            this.authService.login(
+                this.loginData.username,
+                this.loginData.password,
+                this.loginData.specialty
             )
-            this.isSubmitLoading = false
-            this.router.navigate(["/admin"])
-        } catch (err: any) {
-            const obj = {
-                severity: "error",
-                summary: "Error",
-                detail: err.message
-            }
-            this.messageService.add(obj)
-            this.isSubmitLoading = false
+        ) {
+            this.router.navigate(["/patients"])
+        } else {
+            this.errorMessage = "Please fill in all fields"
         }
     }
 }
