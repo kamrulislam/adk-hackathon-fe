@@ -1,0 +1,52 @@
+<div class="patient-list-container">
+  <p-menubar [model]="menuItems" styleClass="custom-menubar"></p-menubar>
+
+  <div class="content-wrapper">
+    <div class="container">
+      <div class="header-section">
+        <h2><i class="pi pi-users"></i> Patient Management</h2>
+        <p>Manage and view patient information</p>
+      </div>
+
+      <div class="patient-grid">
+        <div class="patient-card" *ngFor="let patient of patients">
+          <p-card>
+            <ng-template pTemplate="header">
+              <div class="patient-image-container">
+                <img [src]="patient.image" [alt]="patient.name" class="patient-image">
+              </div>
+            </ng-template>
+
+            <div class="patient-info">
+              <h5>{{ patient.name }}</h5>
+              <p class="patient-id"><strong>ID:</strong> {{ patient.id }}</p>
+            </div>
+
+            <ng-template pTemplate="footer">
+              <div class="action-buttons">
+                <p-button
+                  label="View Detail"
+                  icon="pi pi-eye"
+                  (onClick)="viewDetail(patient)"
+                  styleClass="p-button-primary p-button-sm mr-2 mb-2">
+                </p-button>
+                <p-button
+                  label="Edit"
+                  icon="pi pi-pencil"
+                  (onClick)="editPatient(patient)"
+                  styleClass="p-button-success p-button-sm mr-2 mb-2">
+                </p-button>
+                <p-button
+                  label="Quick Info"
+                  icon="pi pi-info-circle"
+                  (onClick)="quickDetail(patient)"
+                  styleClass="p-button-info p-button-sm mb-2">
+                </p-button>
+              </div>
+            </ng-template>
+          </p-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,6 @@
 import { Routes } from "@angular/router"
+import { PatientListComponent } from "./components/patient-list/patient-list.component"
+import { AuthGuard } from "./guards/auth.guard"
 
 export const routes: Routes = [
     {
@@ -7,6 +9,12 @@ export const routes: Routes = [
             import("./public/public-routing.module").then(
                 (m) => m.PUBLIC_ROUTES
             )
+    },
+
+    {
+        path: "patients",
+        component: PatientListComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: "auth",

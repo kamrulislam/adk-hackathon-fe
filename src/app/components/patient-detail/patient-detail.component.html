@@ -1,0 +1,145 @@
+<div class="patient-detail" *ngIf="!loading && patient">
+  <div class="container">
+    <!-- Header -->
+    <div class="detail-header">
+      <h1><i class="pi pi-user"></i> {{patient.name}}</h1>
+      <button
+        pButton
+        type="button"
+        label="Back to Patients"
+        icon="pi pi-arrow-left"
+        class="back-button"
+        (click)="goBack()">
+      </button>
+    </div>
+
+    <!-- Summary Section -->
+    <p-card class="summary-card">
+      <ng-template pTemplate="content">
+        <div class="row align-items-center">
+          <div class="col-md-2 text-center">
+            <img [src]="patient.image" [alt]="patient.name" class="summary-image">
+          </div>
+          <div class="col-md-10">
+            <div class="row">
+              <div class="col-md-4">
+                <strong>Name:</strong> {{patient.name}}<br>
+                <strong>Sex:</strong> {{patient.sex}}<br>
+                <strong>DOB:</strong> {{patient.dob}}
+              </div>
+              <div class="col-md-4">
+                <strong>Blood Group:</strong> {{patient.bloodGroup}}<br>
+                <strong>Last Check-in:</strong> {{patient.lastCheckin}}<br>
+                <strong>Patient ID:</strong> {{patient.id}}
+              </div>
+              <div class="col-md-4">
+                <strong>Department:</strong> {{patient.department}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-card>
+
+    <!-- Three Column Layout -->
+    <div class="row">
+      <!-- Left Column - Appointments & Prescriptions -->
+      <div class="col-lg-4 col-md-6">
+        <p-card class="info-card">
+          <ng-template pTemplate="header">
+            <h6><i class="pi pi-calendar"></i> Appointments</h6>
+          </ng-template>
+          <ng-template pTemplate="content">
+            <div *ngFor="let appointment of patient.appointments" class="appointment-item">
+              <strong>{{appointment.date}}</strong><br>
+              <small>{{appointment.time}} - {{appointment.doctor}}</small><br>
+              <small class="text-muted">{{appointment.purpose}}</small>
+            </div>
+          </ng-template>
+        </p-card>
+        <p-card class="info-card mt-3">
+          <ng-template pTemplate="header">
+            <h6><i class="pi pi-file"></i> Prescriptions</h6>
+          </ng-template>
+          <ng-template pTemplate="content">
+            <div *ngFor="let prescription of patient.prescriptions" class="prescription-item">
+              <strong>{{prescription.date}}</strong><br>
+              <small>{{prescription.medication}}</small><br>
+              <small class="text-muted">{{prescription.dosage}}</small>
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
+      <!-- Middle Column - Medical History -->
+      <div class="col-lg-4 col-md-6">
+        <p-card class="info-card">
+          <ng-template pTemplate="header">
+            <h6><i class="pi pi-history"></i> Medical History</h6>
+          </ng-template>
+          <ng-template pTemplate="content">
+            <div *ngFor="let history of patient.medicalHistory" class="history-item">
+              <strong>{{history.date}}</strong><br>
+              <small>{{history.condition}}</small><br>
+              <small class="text-muted">{{history.notes}}</small>
+            </div>
+          </ng-template>
+        </p-card>
+        <p-card class="info-card mt-3">
+          <ng-template pTemplate="header">
+            <h6><i class="pi pi-heart"></i> Vital Signs</h6>
+          </ng-template>
+          <ng-template pTemplate="content">
+            <div *ngFor="let vital of patient.vitalSigns" class="vital-item">
+              <strong>{{vital.date}}</strong><br>
+              <small>BP: {{vital.bloodPressure}} | HR: {{vital.heartRate}} bpm</small><br>
+              <small class="text-muted">{{vital.notes}}</small>
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
+      <!-- Right Column - Notes & Actions -->
+      <div class="col-lg-4 col-md-12">
+        <p-card class="info-card">
+          <ng-template pTemplate="header">
+            <h6><i class="pi pi-sticky-note"></i> Notes</h6>
+          </ng-template>
+          <ng-template pTemplate="content">
+            <div *ngFor="let note of patient.notes" class="note-item">
+              <strong>{{note.date}}</strong><br>
+              <small>{{note.content}}</small>
+            </div>
+          </ng-template>
+        </p-card>
+        <p-button
+          label="Add Note"
+          icon="pi pi-plus"
+          class="mt-3"
+          (click)="addNote()">
+        </p-button>
+        <p-button
+          label="Edit Patient"
+          icon="pi pi-pencil"
+          class="mt-2"
+          (click)="editPatient()">
+        </p-button>
+        <p-button
+          label="Delete Patient"
+          icon="pi pi-trash"
+          class="mt-2 p-button-danger"
+          (click)="deletePatient()">
+        </p-button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<div class="loading-spinner" *ngIf="loading">
+  <p-progressSpinner [style]="{'width': '50px', 'height': '50px'}" />
+</div>
+<div class="error-message" *ngIf="errorMessage">
+  <p-message severity="error" [text]="errorMessage"></p-message>
+</div>
+<div class="no-data" *ngIf="!loading && !patient">
+  <p-message severity="info" text="No patient data available."></p-message>
+</div>
+-->

@@ -1,0 +1,147 @@
+.patient-detail {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  .detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .back-button {
+    margin-left: auto;
+  }
+  .summary-card {
+    margin-bottom: 20px;
+  }
+  .summary-image {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+  .info-card {
+    margin-bottom: 20px;
+  }
+  .appointment-item, .prescription-item, .history-item, .vital-item, .note-item {
+    margin-bottom: 10px;
+  }
+  .appointment-item strong, .prescription-item strong, .history-item strong, .vital-item strong, .note-item strong {
+    display: block;
+    font-weight: bold;
+  }
+  .appointment-item small, .prescription-item small, .history-item small, .vital-item small, .note-item small {
+    color: #666;
+  }
+  .loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .error-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+  }
+  .no-data {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col-lg-4, .col-md-6, .col-md-12 {
+    padding: 10px;
+  }
+  @media (max-width: 768px) {
+    .col-lg-4, .col-md-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  @media (min-width: 769px) {
+    .col-lg-4 {
+      flex: 0 0 33.3333%;
+      max-width: 33.3333%;
+    }
+    .col-md-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+    .col-md-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  .mt-3 {
+    margin-top: 1rem;
+  }
+  .mt-2 {
+    margin-top: 0.5rem;
+  }
+  .p-button-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  .p-button-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+  .p-button {
+    width: 100%;
+  }
+  .p-progress-spinner {
+    display: block;
+    margin: 0 auto;
+  }
+  .p-message {
+    margin-top: 20px;
+  }
+  .p-message.error {
+    color: #dc3545;
+  }
+  .p-message.info {
+    color: #17a2b8;
+  }
+  .p-message.success {
+    color: #28a745;
+  }
+  .p-message.warn {
+    color: #ffc107;
+  }
+  .p-message .p-message-text {
+    font-size: 1rem;
+  }
+  .p-message .p-message-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  .p-message .p-message-close {
+    cursor: pointer;
+  }
+  .p-message .p-message-close:hover {
+    color: #dc3545;
+  }
+  .p-message .p-message-close:focus {
+    outline: none;
+  }
+  .p-message .p-message-close:active {
+    color: #c82333;
+  }
+  .p-message .p-message-close:disabled {
+    color: #6c757d;
+    cursor: not-allowed;
+  }
+  .p-message .p-message-close:disabled:hover {
+    color: #6c757d;
+  }
+  .p-message .p-message-close:disabled:focus {
+    outline: none;
+  }
+  .p-message .p-message-close:disabled:active {
+    color: #6c757d;
+  }
