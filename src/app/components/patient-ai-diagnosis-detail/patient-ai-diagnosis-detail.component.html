@@ -6,7 +6,7 @@
       <button
         pButton
         type="button"
-        label="Back to Patients"
+        label="Back to Patient Detail"
         icon="pi pi-arrow-left"
         class="back-button"
         (click)="goBack()">
@@ -38,51 +38,27 @@
     </p-card>
 
     <!-- Three Column Layout -->
-    <div class="grid grid-cols-4 gap-8 pt-8">
+    <div class="grid grid-cols-3 gap-8 pt-8">
       <!-- Left Column - Appointments & Prescriptions -->
       <div class="">
         <p-card class="info-card p-4" [style]="{ background: '#f5f9fa' }">
           <ng-template pTemplate="header">
-            <h3 class="pt-6 pl-4 text-2xl"><i class="pi pi-calendar text-2xl"></i> Appointments</h3>
+            <h3 class="pt-6 pl-4 text-2xl">1</h3>
           </ng-template>
           <ng-template pTemplate="content">
-            <div *ngFor="let appointment of patient.appointments" class="appointment-item">
-              <strong>{{appointment.date}}</strong><br>
-              <small>{{appointment.time}} - {{appointment.doctor}}</small><br>
-              <small class="text-muted">{{appointment.purpose}}</small>
-            </div>
+            coming soon
           </ng-template>
         </p-card>
-        <p-card class="info-card mt-3 p-4" [style]="{ background: '#f5f9fa' }">
-          <ng-template pTemplate="header">
-            <h3 class="pt-6 pl-4 text-2xl"><i class="pi pi-file text-2xl"></i> Prescriptions</h3>
-          </ng-template>
-          <ng-template pTemplate="content">
-            <div *ngFor="let prescription of patient.prescriptions" class="prescription-item">
-              <strong>{{prescription.date}}</strong><br>
-              <small>{{prescription.medication}}</small><br>
-              <small class="text-muted">{{prescription.dosage}}</small>
-            </div>
-          </ng-template>
-        </p-card>
+
       </div>
       <!-- Middle Column - Medical History -->
-      <div class="col-span-2">
-        <p-card class="info-card p-4" [style]="{ background: '#f5f9fa' }" (click)="goToAiDiagnosis()">
+      <div class="">
+        <p-card class="info-card p-4" [style]="{ background: '#f5f9fa' }">
           <ng-template pTemplate="header">
-            <h3 class="pt-6 pl-4 text-2xl"><i class="pi pi-microchip-ai text-sky-500 text-2xl"></i> NebulaPrime Intelligence</h3>
+            <h3 class="pt-6 pl-4 text-2xl"> 2</h3>
           </ng-template>
           <ng-template pTemplate="content">
-            <div *ngFor="let diagnosis of patient.aiDiagnosis" class="history-item">
-              <div class="flex flex-row items-center">
-                <div class="w-12">
-                  <i class="pi pi-circle-fill text-red-500 text-3xl" *ngIf="diagnosis.DiseaseDetectionResultBoolean === 'Yes'"></i>
-                  <i class="pi pi-circle-fill text-green-500 text-3xl" *ngIf="diagnosis.DiseaseDetectionResultBoolean === 'No'"></i>
-                </div>
-                <div class="flex-1">{{diagnosisMap[diagnosis.AssessedDisease]}}</div>
-                <div class="w-64"><p-progressbar [value]="diagnosis.DiseaseDetectionConfidencePercentage" /></div>
-              </div>
-            </div>
+            coming soon
           </ng-template>
         </p-card>
 
@@ -91,17 +67,10 @@
       <div class="">
         <p-card class="info-card mt-3 p-4" [style]="{ background: '#f5f9fa' }">
           <ng-template pTemplate="header">
-            <h3 class="pt-6 pl-4 text-2xl"><i class="pi pi-heart text-2xl"></i> Vital Signs</h3>
+            <h3 class="pt-6 pl-4 text-2xl">3</h3>
           </ng-template>
           <ng-template pTemplate="content">
-            <div class="vital-item">
-              <strong>Age: {{patient.vitals?.age}}</strong><br>
-              <small>BP: {{patient.vitals?.bp}} </small><br>
-              <small>HR: {{patient.vitals?.heartRate}} bpm</small>
-              <small>Temp: {{patient.vitals?.temperature}}</small><br>
-              <small class="text-muted"> Height: {{patient.vitals?.height}}</small><br>
-              <small class="text-muted"> Weight: {{patient.vitals?.weight}}</small>
-            </div>
+            coming soon
           </ng-template>
         </p-card>
         <!-- <p-button

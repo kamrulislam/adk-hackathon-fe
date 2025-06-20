@@ -1,0 +1,26 @@
+[
+  {
+    "AssessedDisease": "nephrolithiasis",
+    "ClinicalDataCompletenessPercentage": 90,
+    "ClinicalDataRelevancePercentage": 70,
+    "DiseaseDetectionConfidencePercentage": 80,
+    "DiseaseDetectionResultBoolean": "Yes",
+    "SummaryOfRelevantData": "The patient, John Doe, presents with acute right flank pain, and a non-contrast CT scan of the abdomen and pelvis was performed. The scan revealed a 6 mm hyperdense calculus at the right ureteropelvic junction (UPJ), causing mild hydronephrosis and perinephric fat stranding. These findings are indicative of acute nephrolithiasis. The left kidney appears normal. No other calculi were identified in the urinary tract. The impression from the radiologist is acute nephrolithiasis."
+  },
+  {
+    "AssessedDisease": "renal_cell_carcinoma",
+    "ClinicalDataCompletenessPercentage": 90,
+    "ClinicalDataRelevancePercentage": 70,
+    "DiseaseDetectionConfidencePercentage": 95,
+    "DiseaseDetectionResultBoolean": "No",
+    "SummaryOfRelevantData": "The radiology report indicates acute nephrolithiasis with a 6mm obstructing calculus at the right ureteropelvic junction, causing mild hydronephrosis. There is no evidence of renal masses or lesions suggestive of renal cell carcinoma."
+  },
+  {
+    "AssessedDisease": "renal_failure",
+    "ClinicalDataCompletenessPercentage": 90,
+    "ClinicalDataRelevancePercentage": 70,
+    "DiseaseDetectionConfidencePercentage": 80,
+    "DiseaseDetectionResultBoolean": "Yes",
+    "SummaryOfRelevantData": "Based on the provided radiology report, the patient, John Doe, exhibits a 6 mm obstructing calculus at the right ureteropelvic junction (UPJ) causing mild hydronephrosis and perinephric fat stranding. Hydronephrosis, the swelling of the kidney due to a blockage of urine flow, can lead to renal failure if left untreated. The presence of an obstructing calculus supports the diagnosis of acute kidney injury, which if not resolved can lead to chronic kidney disease. However, without laboratory tests showing elevated creatinine, BUN, or reduced eGFR, or urinalysis indicating proteinuria or hematuria, and also without knowing the duration of obstruction, it's challenging to fully confirm renal failure. The report recommends urological consultation, pain management, hydration therapy, and follow-up imaging, which are appropriate steps in managing potential renal complications. Given the acute presentation and the potential for reversible kidney damage, prompt intervention is crucial to prevent progression to chronic kidney disease or renal failure."
+  }
+]

@@ -15,7 +15,7 @@ import { ProgressSpinnerModule } from "primeng/progressspinner"
 import { TagModule } from "primeng/tag"
 
 @Component({
-    selector: "app-patient-detail",
+    selector: "app-patient-ai-diagnosis-detail",
     standalone: true,
     imports: [
         CommonModule,
@@ -27,10 +27,10 @@ import { TagModule } from "primeng/tag"
         ProgressBarModule,
         TagModule
     ],
-    templateUrl: "./patient-detail.component.html",
-    styleUrls: ["./patient-detail.component.scss"]
+    templateUrl: "./patient-ai-diagnosis-detail.component.html",
+    styleUrls: ["./patient-ai-diagnosis-detail.component.scss"]
 })
-export class PatientDetailComponent implements OnInit {
+export class PatientAiDiagnosisDetailComponent implements OnInit {
     patient: Patient | null = null
     loading = true
     diagnosisMap = {
@@ -77,7 +77,7 @@ export class PatientDetailComponent implements OnInit {
     }
 
     goBack() {
-        this.router.navigate(["/patients"])
+        this.router.navigate(["/patient", this.patient?.id!])
     }
 
     viewPathologyReport() {
@@ -105,11 +105,5 @@ export class PatientDetailComponent implements OnInit {
     deletePatient() {
         // TODO: Implement logic to delete the patient
         console.log("Delete Patient clicked")
-    }
-
-    goToAiDiagnosis() {
-        if (this.patient) {
-            this.router.navigate(["/patient", this.patient.id, "diagnosis"])
-        }
     }
 }

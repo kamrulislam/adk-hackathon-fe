@@ -8,6 +8,7 @@ import { ButtonModule } from "primeng/button"
 import { PrimeNG } from "primeng/config"
 import { ConfirmDialog } from "primeng/confirmdialog"
 import { InputTextModule } from "primeng/inputtext"
+import { MenubarModule } from "primeng/menubar"
 import { ToastModule } from "primeng/toast"
 import { ToggleSwitch } from "primeng/toggleswitch"
 
@@ -38,6 +39,7 @@ const MyPreset = definePreset(Aura, {
         ToggleSwitch,
         ConfirmDialog,
         ToastModule,
+        MenubarModule,
         RouterOutlet
     ],
     templateUrl: "./app.component.html",

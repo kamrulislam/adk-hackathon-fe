@@ -9,9 +9,11 @@ export interface Patient {
     department: string
     appointments: Appointment[]
     prescriptions: Prescription[]
-    aiDiagnosis: AIDiagnosis
+    aiDiagnosis: AIDiagnosis[]
     prognosis: Prognosis
     vitals: Vitals
+    clinical_context: string
+    clinical_reports: string
 }
 
 export interface Appointment {
@@ -29,9 +31,15 @@ export interface Prescription {
 }
 
 export interface AIDiagnosis {
-    primary: string
-    confidence: number
-    analysis: string
+    AssessedDisease:
+        | "nephrolithiasis"
+        | "renal_cell_carcinoma"
+        | "renal_failure"
+    ClinicalDataCompletenessPercentage: number
+    ClinicalDataRelevancePercentage: number
+    DiseaseDetectionConfidencePercentage: number
+    DiseaseDetectionResultBoolean: "Yes" | "No"
+    SummaryOfRelevantData: string
 }
 
 export interface Prognosis {
