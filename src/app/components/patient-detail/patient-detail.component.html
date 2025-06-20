@@ -76,23 +76,26 @@
           <ng-template pTemplate="header">
             <h6><i class="pi pi-history"></i> Medical History</h6>
           </ng-template>
-          <ng-template pTemplate="content">
+          <!-- <ng-template pTemplate="content">
             <div *ngFor="let history of patient.medicalHistory" class="history-item">
               <strong>{{history.date}}</strong><br>
               <small>{{history.condition}}</small><br>
               <small class="text-muted">{{history.notes}}</small>
             </div>
-          </ng-template>
+          </ng-template> -->
         </p-card>
         <p-card class="info-card mt-3">
           <ng-template pTemplate="header">
             <h6><i class="pi pi-heart"></i> Vital Signs</h6>
           </ng-template>
           <ng-template pTemplate="content">
-            <div *ngFor="let vital of patient.vitalSigns" class="vital-item">
-              <strong>{{vital.date}}</strong><br>
-              <small>BP: {{vital.bloodPressure}} | HR: {{vital.heartRate}} bpm</small><br>
-              <small class="text-muted">{{vital.notes}}</small>
+            <div class="vital-item">
+              <strong>Age: {{patient.vitals?.age}}</strong><br>
+              <small>BP: {{patient.vitals?.bp}} </small><br>
+              <small>HR: {{patient.vitals?.heartRate}} bpm</small>
+              <small>Temp: {{patient.vitals?.temperature}}</small><br>
+              <small class="text-muted"> Height: {{patient.vitals?.height}}</small><br>
+              <small class="text-muted"> Weight: {{patient.vitals?.weight}}</small>
             </div>
           </ng-template>
         </p-card>
@@ -103,12 +106,12 @@
           <ng-template pTemplate="header">
             <h6><i class="pi pi-sticky-note"></i> Notes</h6>
           </ng-template>
-          <ng-template pTemplate="content">
+          <!-- <ng-template pTemplate="content">
             <div *ngFor="let note of patient.notes" class="note-item">
               <strong>{{note.date}}</strong><br>
               <small>{{note.content}}</small>
             </div>
-          </ng-template>
+          </ng-template> -->
         </p-card>
         <p-button
           label="Add Note"

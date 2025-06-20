@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router"
+import { PatientDetailComponent } from "./components/patient-detail/patient-detail.component"
 import { PatientListComponent } from "./components/patient-list/patient-list.component"
 import { AuthGuard } from "./guards/auth.guard"
 
@@ -14,6 +15,11 @@ export const routes: Routes = [
     {
         path: "patients",
         component: PatientListComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: "patient/:id",
+        component: PatientDetailComponent,
         canActivate: [AuthGuard]
     },
     {
