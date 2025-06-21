@@ -8,16 +8,16 @@
         <p>Manage and view patient information</p>
       </div>
 
-      <div class="patient-grid">
+      <div class="grid grid-flow-col grid-col-3 gap-4">
         <div class="patient-card" *ngFor="let patient of patients">
           <p-card>
             <ng-template pTemplate="header">
-              <div class="patient-image-container">
-                <img [src]="patient.image" [alt]="patient.name" class="patient-image">
+              <div class="flex flex-row items-center justify-center pt-8">
+                <img width="50px" [src]="patient.image" [alt]="patient.name" class="patient-image">
               </div>
             </ng-template>
 
-            <div class="patient-info">
+            <div class="flex flex-col items-center justify-center">
               <h5>{{ patient.name }}</h5>
               <p class="patient-id"><strong>ID:</strong> {{ patient.id }}</p>
             </div>
