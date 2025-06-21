@@ -78,9 +78,10 @@
                 <div class="w-12">
                   <i class="pi pi-circle-fill text-red-500 text-3xl" *ngIf="diagnosis.DiseaseDetectionResultBoolean === 'Yes'"></i>
                   <i class="pi pi-circle-fill text-green-500 text-3xl" *ngIf="diagnosis.DiseaseDetectionResultBoolean === 'No'"></i>
+                  <i class="pi pi-circle-fill text-gray-500 text-3xl" *ngIf="diagnosis.DiseaseDetectionResultBoolean !== 'No' && diagnosis.DiseaseDetectionResultBoolean !== 'Yes'"></i>
                 </div>
                 <div class="flex-1">{{diagnosisMap[diagnosis.AssessedDisease]}}</div>
-                <div class="w-64"><p-progressbar [value]="diagnosis.DiseaseDetectionConfidencePercentage" /></div>
+                <div class="w-64"><p-progressbar [value]="diagnosis.DiseaseDetectionConfidencePercentage || 0" /></div>
               </div>
             </div>
           </ng-template>
@@ -142,11 +143,13 @@
               <div class="w-12">
                 <i class="pi pi-circle-fill text-red-500 text-3xl" *ngIf="diagnosis.DiseaseDetectionResultBoolean === 'Yes'"></i>
                 <i class="pi pi-circle-fill text-green-500 text-3xl" *ngIf="diagnosis.DiseaseDetectionResultBoolean === 'No'"></i>
+                <i class="pi pi-circle-fill text-gray-500 text-3xl" *ngIf="diagnosis.DiseaseDetectionResultBoolean !== 'No' && diagnosis.DiseaseDetectionResultBoolean !== 'Yes'"></i>
               </div>
             </div>
             <div class="text-muted pl-6">
               <span *ngIf="diagnosis.DiseaseDetectionResultBoolean === 'Yes'">POSITIVE</span>
               <span *ngIf="diagnosis.DiseaseDetectionResultBoolean === 'No'">NEGATIVE</span>
+              <span *ngIf="diagnosis.DiseaseDetectionResultBoolean !== 'No' && diagnosis.DiseaseDetectionResultBoolean !== 'Yes'" >UNKNOWN</span>
             </div>
         </ng-template>
           <ng-template pTemplate="content">
