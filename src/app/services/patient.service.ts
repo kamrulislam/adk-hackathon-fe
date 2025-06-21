@@ -226,7 +226,17 @@ export class PatientService {
         }
 
         return this.http
-            .post<AIDiagnosis[]>(this.apiUrl, {}, this.httpOptions)
+            .post<AIDiagnosis[]>(
+                this.apiUrl,
+                {
+                    user_id: "u_2",
+                    state: {
+                        clinical_context: patient.clinical_context,
+                        clinical_reports: patient.clinical_reports
+                    }
+                },
+                this.httpOptions
+            )
             .pipe(catchError(this.handleError))
     }
 

@@ -6,7 +6,7 @@
       <button
         pButton
         type="button"
-        label="Back to Patients"
+        [label]="state === 'Details' ? 'Back to Patients List' : 'Back to Patient Detail'"
         icon="pi pi-arrow-left"
         class="back-button"
         (click)="goBack()">
@@ -38,7 +38,7 @@
     </p-card>
 
     <!-- Three Column Layout -->
-    <div class="grid grid-cols-4 gap-8 pt-8">
+    <div class="grid grid-cols-4 gap-8 pt-8" *ngIf="patient && state === 'Details'">
       <!-- Left Column - Appointments & Prescriptions -->
       <div class="">
         <p-card class="info-card p-4" [style]="{ background: '#f5f9fa' }">
@@ -68,7 +68,7 @@
       </div>
       <!-- Middle Column - Medical History -->
       <div class="col-span-2">
-        <p-card class="info-card p-4" [style]="{ background: '#f5f9fa' }" (click)="goToAiDiagnosis()">
+        <p-card class="info-card p-4" [style]="{ background: '#f5f9fa' }" >
           <ng-template pTemplate="header">
             <h3 class="pt-6 pl-4 text-2xl"><i class="pi pi-microchip-ai text-sky-500 text-2xl"></i> NebulaPrime Intelligence</h3>
           </ng-template>
@@ -84,6 +84,11 @@
               </div>
             </div>
           </ng-template>
+          <ng-template #footer>
+            <div class="flex gap-4 mt-1">
+                <p-button label="Details" class="w-full" styleClass="w-full" (click)="goToAiDiagnosis()" />
+            </div>
+        </ng-template>
         </p-card>
 
       </div>
@@ -122,6 +127,33 @@
           class="mt-2 p-button-danger"
           (click)="deletePatient()">
         </p-button> -->
+      </div>
+    </div>
+
+
+
+    <div class="grid grid-cols-3 gap-8 pt-8" *ngIf="patient && state === 'AI'">
+      <!-- Left Column - Appointments & Prescriptions -->
+      <div class="" *ngFor="let diagnosis of patient.aiDiagnosis">
+        <p-card class="info-card p-4" [style]="{ background: '#f5f9fa' }">
+          <ng-template pTemplate="header">
+            <div class="flex flex-row items-center">
+              <h3 class="pl-6 pr-6 text-2xl">{{diagnosisMap[diagnosis.AssessedDisease]}}</h3>
+              <div class="w-12">
+                <i class="pi pi-circle-fill text-red-500 text-3xl" *ngIf="diagnosis.DiseaseDetectionResultBoolean === 'Yes'"></i>
+                <i class="pi pi-circle-fill text-green-500 text-3xl" *ngIf="diagnosis.DiseaseDetectionResultBoolean === 'No'"></i>
+              </div>
+            </div>
+            <div class="text-muted pl-6">
+              <span *ngIf="diagnosis.DiseaseDetectionResultBoolean === 'Yes'">POSITIVE</span>
+              <span *ngIf="diagnosis.DiseaseDetectionResultBoolean === 'No'">NEGATIVE</span>
+            </div>
+        </ng-template>
+          <ng-template pTemplate="content">
+            {{diagnosis.SummaryOfRelevantData}}<br>
+          </ng-template>
+        </p-card>
+
       </div>
     </div>
   </div>

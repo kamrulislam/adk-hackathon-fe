@@ -1,12 +1,11 @@
 export const environment = {
     firebase: {
-        apiKey: "AIzaSyDNFXeI_qqmWqhBrAu8iNK9KdICkOaw4s4",
-        authDomain: "boiler-plate-9c825.firebaseapp.com",
-        databaseURL: "https://boiler-plate-9c825-default-rtdb.firebaseio.com",
-        projectId: "boiler-plate-9c825",
-        storageBucket: "boiler-plate-9c825.appspot.com",
-        messagingSenderId: "434319341116",
-        appId: "1:434319341116:web:d8130c40a6615891bb3539",
-        measurementId: "G-D24GEPJFYF"
+        apiKey: "AIzaSyAglob79XwBKlOK9oxAq718H6zhMXwNZVs",
+        authDomain: "nebula-prime-13736.firebaseapp.com",
+        projectId: "nebula-prime-13736",
+        storageBucket: "nebula-prime-13736.firebasestorage.app",
+        messagingSenderId: "857216678255",
+        appId: "1:857216678255:web:abd9c8c2466dd2bf53909a",
+        measurementId: "G-1Q2MXNLZSY"
     }
 }

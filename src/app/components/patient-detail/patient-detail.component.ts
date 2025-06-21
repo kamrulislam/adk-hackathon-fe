@@ -33,6 +33,7 @@ import { TagModule } from "primeng/tag"
 export class PatientDetailComponent implements OnInit {
     patient: Patient | null = null
     loading = true
+    state: "Details" | "AI" = "Details"
     diagnosisMap = {
         nephrolithiasis: "Nephrolithiasis (Kidney Stones)",
         renal_cell_carcinoma: "Renal Cell Carcinoma",
@@ -77,7 +78,11 @@ export class PatientDetailComponent implements OnInit {
     }
 
     goBack() {
-        this.router.navigate(["/patients"])
+        if (this.state === "AI") {
+            this.state = "Details"
+        } else {
+            this.router.navigate(["/patients"])
+        }
     }
 
     viewPathologyReport() {
@@ -109,7 +114,8 @@ export class PatientDetailComponent implements OnInit {
 
     goToAiDiagnosis() {
         if (this.patient) {
-            this.router.navigate(["/patient", this.patient.id, "diagnosis"])
+            // this.router.navigate(["/patient", this.patient.id, "diagnosis"])
+            this.state = "AI"
         }
     }
 }
