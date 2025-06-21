@@ -29,7 +29,7 @@ export class PatientService {
     }
     private patients: Patient[] = [
         {
-            id: "P001",
+            id: "A6S9T2D0P5",
             name: "John Doe",
             image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
             sex: "Male",
@@ -143,7 +143,7 @@ export class PatientService {
         //     }
         // },
         {
-            id: "P003",
+            id: "N3B8V1M4W7",
             name: "Jane Doe",
             image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
             sex: "Male",
