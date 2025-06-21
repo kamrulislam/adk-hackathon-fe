@@ -60,6 +60,16 @@
   .col-lg-4, .col-md-6, .col-md-12 {
     padding: 10px;
   }
+
+::ng-deep .p-progressbar {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+::ng-deep .p-progressbar-value {
+  border-radius: 20px;
+}
+
   @media (max-width: 768px) {
     .col-lg-4, .col-md-6 {
       flex: 0 0 100%;
