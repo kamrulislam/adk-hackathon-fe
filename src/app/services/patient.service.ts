@@ -145,9 +145,9 @@ export class PatientService {
         {
             id: "N3B8V1M4W7",
             name: "Jane Doe",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-            sex: "Male",
-            dob: "1978-11-03",
+            image: "https://images.unsplash.com/photo-1600783486418-d366cce3ccbd?w=100&h=100&fit=crop&crop=face",
+            sex: "Female",
+            dob: "2001-11-03",
             bloodGroup: "O+",
             lastCheckin: "2024-12-12",
             department: "Oncology",
@@ -187,7 +187,7 @@ export class PatientService {
                     "Aggressive treatment, pain management, family support"
             },
             vitals: {
-                age: 46,
+                age: 25,
                 height: 180,
                 weight: 72,
                 bp: "135/85",

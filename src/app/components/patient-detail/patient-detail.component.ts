@@ -37,7 +37,22 @@ export class PatientDetailComponent implements OnInit {
     diagnosisMap = {
         nephrolithiasis: "Nephrolithiasis (Kidney Stones)",
         renal_cell_carcinoma: "Renal Cell Carcinoma",
-        renal_failure: "Renal Failure"
+        renal_failure: "Renal Failure",
+        colon_cancer: "Colon Cancer",
+        brain_cancer: "Brain Cancer",
+        lung_cancer: "Lung Cancer",
+        breast_cancer: "Breast Cancer",
+        prostate_cancer: "Prostate Cancer",
+        diabetes: "Diabetes",
+        hypertension: "Hypertension",
+        asthma: "Asthma",
+        heart_disease: "Heart Disease",
+        stroke: "Stroke",
+        arthritis: "Arthritis",
+        osteoporosis: "Osteoporosis",
+        alzheimers: "Alzheimer's Disease",
+        parkinsons: "Parkinson's Disease",
+        multiple_sclerosis: "Multiple Sclerosis"
     }
 
     constructor(

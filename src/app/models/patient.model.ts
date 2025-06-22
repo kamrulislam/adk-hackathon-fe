@@ -35,6 +35,21 @@ export interface AIDiagnosis {
         | "nephrolithiasis"
         | "renal_cell_carcinoma"
         | "renal_failure"
+        | "colon_cancer"
+        | "brain_cancer"
+        | "lung_cancer"
+        | "breast_cancer"
+        | "prostate_cancer"
+        | "diabetes"
+        | "hypertension"
+        | "asthma"
+        | "heart_disease"
+        | "stroke"
+        | "arthritis"
+        | "osteoporosis"
+        | "alzheimers"
+        | "parkinsons"
+    AssessedDiseaseName: string
     ClinicalDataCompletenessPercentage: number
     ClinicalDataRelevancePercentage: number
     DiseaseDetectionConfidencePercentage: number
