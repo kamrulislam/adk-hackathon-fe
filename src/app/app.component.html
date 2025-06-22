@@ -14,12 +14,32 @@
 <div>{{ title }}</div>
 <p-button (click)="updateTitle()" label="UPDATE TITLE" />
 <div class="text-2xl text-gray-200"></div> -->
+<div class="flex flex-col min-h-screen">
+  <div class="flex-1">
+    <p-menubar >
+    <ng-template #start>
+      <img  width="100" src="logo.png"/>
 
-<p-menubar >
-<ng-template #start>
-    <img  width="100" src="logo.png"/>
+    </ng-template>
 
-</ng-template>
+    <ng-template #end>
+      <div class="flex items-center gap-2"  *ngIf="showNav$ | async">
+        <!-- <input type="text" pInputText placeholder="Search" class="w-36" /> -->
+        <span class="user-name">Dr Will Smith</span>
+        <p-avatar image="doctor.png" shape="circle" />
+      </div>
+    </ng-template>
 
-</p-menubar>
-<router-outlet></router-outlet>
+  </p-menubar>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="flex justify-center items-center bg-gray-800 text-white p-4">
+    <p class="text-sm">© 2023 NebulaPrime Health. All rights reserved.</p>
+  </div>
+</div>
+<!-- <div class="container">
+
+
+</div>
+
+<router-outlet></router-outlet> -->

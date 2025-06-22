@@ -1,9 +1,17 @@
+import { CommonModule } from "@angular/common"
 import { Component, inject } from "@angular/core"
 import { FormsModule } from "@angular/forms"
-import { RouterOutlet } from "@angular/router"
+import {
+    ActivatedRoute,
+    NavigationEnd,
+    Router,
+    RouterOutlet
+} from "@angular/router"
 import { definePreset } from "@primeng/themes"
 import Aura from "@primeng/themes/aura"
 import { ConfirmationService, MessageService } from "primeng/api"
+import { AvatarModule } from "primeng/avatar"
+import { AvatarGroupModule } from "primeng/avatargroup"
 import { ButtonModule } from "primeng/button"
 import { PrimeNG } from "primeng/config"
 import { ConfirmDialog } from "primeng/confirmdialog"
@@ -11,6 +19,7 @@ import { InputTextModule } from "primeng/inputtext"
 import { MenubarModule } from "primeng/menubar"
 import { ToastModule } from "primeng/toast"
 import { ToggleSwitch } from "primeng/toggleswitch"
+import { filter, map, Observable } from "rxjs"
 
 const MyPreset = definePreset(Aura, {
     semantic: {
@@ -33,6 +42,7 @@ const MyPreset = definePreset(Aura, {
 @Component({
     selector: "app-root",
     imports: [
+        CommonModule,
         ButtonModule,
         InputTextModule,
         FormsModule,
@@ -40,6 +50,8 @@ const MyPreset = definePreset(Aura, {
         ConfirmDialog,
         ToastModule,
         MenubarModule,
+        AvatarModule,
+        AvatarGroupModule,
         RouterOutlet
     ],
     templateUrl: "./app.component.html",
@@ -53,9 +65,23 @@ export class AppComponent {
     private confirmationService: ConfirmationService =
         inject(ConfirmationService)
     private messageService: MessageService = inject(MessageService)
-    title = "Hello"
+    title = "NebulaPrime"
+    showNav$: Observable<boolean>
 
-    constructor() {
+    constructor(
+        private router: Router,
+        private route: ActivatedRoute
+    ) {
+        this.showNav$ = this.router.events.pipe(
+            filter((event) => event instanceof NavigationEnd),
+            map((event) => {
+                console.log(
+                    event.url,
+                    !(event.url.endsWith("/") || event.url.endsWith("login"))
+                )
+                return !(event.url.endsWith("/") || event.url.endsWith("login"))
+            })
+        )
         // Default theme configuration
         this.config.theme.set({
             preset: MyPreset,
