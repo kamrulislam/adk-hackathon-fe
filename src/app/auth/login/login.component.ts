@@ -29,7 +29,7 @@ import { PasswordModule } from "primeng/password"
     styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent {
-    loginData = { username: "", password: "", specialty: "" }
+    loginData = { username: "test", password: "test", specialty: "oncology" }
 
     specialties = [
         { label: "Select Specialty", value: "" },
